@@ -40,7 +40,7 @@ class ApiController extends Controller
             'password' => Hash::make($request->password),
         ]);
 
-        return response()->json(['sukses' => true, 'data' => $data]);
+        return response()->json(['sukses' => true, 'id' => $user->id, 'name' => $user->name]);
     }
 
     public function schedule_list(){
