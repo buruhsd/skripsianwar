@@ -19,7 +19,7 @@ class ApiController extends Controller
         $password = Hash::make($request->password);
         $user = User::where('email', $request->email)->first();
         if (Auth::attempt(['email'=>$request->email,'password'=>$request->password])) {
-            return response()->json(['sukses' => true, 'data' => $user]);
+            return response()->json(['sukses' => true, 'id' => $user->id, 'name' => $user->name]);
         }else{
             return response()->json(['sukses'=> false, 'data' => $request->password]);
         }
